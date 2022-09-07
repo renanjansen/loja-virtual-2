@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// chama o model de produtos criado paratrabalhar com a base de dados
+use App\Models\Product;
+
 class CadastroController extends Controller
 {
     //Função que gerará o cadastro
@@ -12,12 +15,13 @@ class CadastroController extends Controller
 
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
-
+        $produtos = Product::all();
         return view(
             'cadastroProdutos',
             [
                 'empresaNome' => $empresaNome,
-                'vendedorNome' => $vendedorNome
+                'vendedorNome' => $vendedorNome,
+                'produtos' => $produtos
             ]
         );
     }

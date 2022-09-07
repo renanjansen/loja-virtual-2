@@ -2,6 +2,8 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+use  Intervention\Image\ImageManager;
+
 
 define('LARAVEL_START', microtime(true));
 

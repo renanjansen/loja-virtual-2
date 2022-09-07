@@ -31,16 +31,22 @@
     </form>
 @section('listaProdutos')
 
-    <div class="card col-sm-12" style="width: auto; height: auto">
-        <img src="/img/logo.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    @foreach ($produtos as $produto)
+        <div class="card col-sm-12" style="width: auto; height: auto">
 
-    </div>
+            <img src="{{ $produto->fotoproduto }}" class="card-img-top" alt="imagem do produto">
+
+
+            <div class="card-body">
+                <h5 class="card-title">{{ $produto->nomeproduto }}</h5>
+                <p class="card-text">{{ $produto->descProduto }}</p>
+                <a href="#" class="btn btn-primary">{{ $produto->precoProduto }}</a>
+            </div>
+
+        </div>
+    @endforeach
+
+
 
 
 @endsection
