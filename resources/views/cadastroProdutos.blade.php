@@ -30,21 +30,25 @@
         </div>
     </form>
 @section('listaProdutos')
+    <ul class="list-group">
+        @foreach ($produtos as $produto)
+        <li class="list-group-item">
+            <div class="card col-sm-12 mb-5" style="width: auto; height: auto">
 
-    @foreach ($produtos as $produto)
-        <div class="card col-sm-12" style="width: auto; height: auto">
-
-            <img src="{{ $produto->fotoproduto }}" class="card-img-top" alt="imagem do produto">
+                <img src="data:image/png;base64,{{ chunk_split(base64_encode($produto->fotoproduto)) }}"
+                    class="card-img-top" alt="imagem do produto">
 
 
-            <div class="card-body">
-                <h5 class="card-title">{{ $produto->nomeproduto }}</h5>
-                <p class="card-text">{{ $produto->descProduto }}</p>
-                <a href="#" class="btn btn-primary">{{ $produto->precoProduto }}</a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ $produto->nomeproduto }}</h5>
+                    <p class="card-text">{{ $produto->descProduto }}</p>
+                    <a href="#" class="btn btn-danger">{{ $produto->precoProduto }}</a>
+                </div>
+
             </div>
-
-        </div>
-    @endforeach
+        </li>
+        @endforeach
+    </ul>
 
 
 

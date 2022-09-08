@@ -2,19 +2,28 @@
 @section('title', 'Lista de Produtos')
 @section('content')
 
-    <div class="container  text-center">
-        <div class="row justify-content-center mt-3">
-        <div class="card col-sm-12" style="width: 35rem; height: 20rem">
-            <img src="/img/logo.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        </div>
+    
+
+
+        @foreach ($produtos as $produto)
+        <div class="row text-center mt-3 justify-content-center">
+            
+                <div class="card col-sm-12 mb-3" style="width: 20rem;">
+
+                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($produto->fotoproduto)) }}"
+                        class="card-img-top" alt="imagem do produto">
+
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ $produto->nomeproduto }}</h5>
+                        <p class="card-text">{{ $produto->descProduto }}</p>
+                        <a href="#" class="btn btn-danger">{{ $produto->precoProduto }}</a>
+                    </div>
+
+                </div>
+            
+        @endforeach
     </div>
 
-        
+
 @endsection

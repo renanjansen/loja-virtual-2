@@ -25,15 +25,5 @@ Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrar']);
 
 
 
-Route::get('/listaProdutos', function () {
-
-    $empresaNome = "Sistema Favela Vende";
-    $vendedorNome = "Renan Jansen";
-
-    return view('listaProdutos',
-    [
-        'empresaNome' => $empresaNome,
-        'vendedorNome' => $vendedorNome
-    ]);
-});
+Route::get('/listaProdutos',[CadastroController::class, 'listar']);
 

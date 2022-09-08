@@ -25,4 +25,20 @@ class CadastroController extends Controller
             ]
         );
     }
+
+    public function listar()
+    {
+
+        $empresaNome = "Sistema Favela Vende";
+        $vendedorNome = "Renan Jansen";
+        $produtos = Product::all();
+        return view(
+            'listaProdutos',
+            [
+                'empresaNome' => $empresaNome,
+                'vendedorNome' => $vendedorNome,
+                'produtos' => $produtos
+            ]
+        );
+    }
 }
