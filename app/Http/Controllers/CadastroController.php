@@ -15,6 +15,7 @@ class CadastroController extends Controller
 
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
+        // chama todos os produtos da base de dados product
         $produtos = Product::all();
         return view(
             'cadastroProdutos',

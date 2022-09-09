@@ -21,9 +21,5 @@ Route::get('/boasVindas', [LoginController::class,'logar']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrar']);
 
-
-
-
-
 Route::get('/listaProdutos',[CadastroController::class, 'listar']);
 

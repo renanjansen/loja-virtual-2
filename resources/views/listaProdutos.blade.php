@@ -6,12 +6,12 @@
 
 
         @foreach ($produtos as $produto)
-        <div class="row text-center mt-3 justify-content-center">
+        <div class="row text-center mt-3 mb-5 justify-content-center">
             
                 <div class="card col-sm-12 mb-3" style="width: 20rem;">
 
                     <img src="data:image/png;base64,{{ chunk_split(base64_encode($produto->fotoproduto)) }}"
-                        class="card-img-top" alt="imagem do produto">
+                        class="card-img-top mt-2" alt="imagem do produto">
 
 
                     <div class="card-body text-center">
