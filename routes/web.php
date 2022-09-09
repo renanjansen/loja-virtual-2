@@ -23,3 +23,6 @@ Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrar']);
 
 Route::get('/listaProdutos',[CadastroController::class, 'listar']);
 
+// define a rota que recebe dados via post da view de cadastro
+Route::post('/cadastroProdutos',[CadastroController::class, 'store']);
+

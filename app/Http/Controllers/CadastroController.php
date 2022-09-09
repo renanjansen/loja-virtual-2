@@ -42,4 +42,26 @@ class CadastroController extends Controller
             ]
         );
     }
+    
+    // traz os dados do formulário
+    public function store(Request $request){
+
+
+        // instância do objeto Product da base de dados
+        $produto = new Product;
+
+        $produto->nomeproduto = $request->nomeproduto;
+        $produto->fotoproduto = $request->fotoproduto;
+        $produto->precoProduto = $request->precoProduto;
+        $produto->descProduto = $request->descProduto;
+
+
+        // por final os dados do objeto intanciado é salvo
+        $produto->save();
+
+        // redireciona após o cadastro do produto
+        return redirect('/listaProdutos');
+
+
+    }
 }
