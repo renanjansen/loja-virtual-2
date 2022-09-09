@@ -30,7 +30,7 @@
                 <textarea class="form-control" id="descProduto"name="descProduto" rows="3"></textarea>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-danger">Cadastrar Produto</button>
+                <button type="submit" class="btn btn-warning">Cadastrar Produto</button>
             </div>
         </div>
     </form>

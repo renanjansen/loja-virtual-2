@@ -60,7 +60,7 @@ class CadastroController extends Controller
         $produto->save();
 
         // redireciona após o cadastro do produto
-        return redirect('/listaProdutos');
+        return redirect('/listaProdutos')->with('msg', 'Produto Cadastrado com sucesso!');
 
 
     }

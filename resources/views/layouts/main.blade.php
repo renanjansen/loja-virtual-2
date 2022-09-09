@@ -29,7 +29,17 @@
                 </a>
             </div>
         </nav>
-        @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row text-center">
+                    @if(session('msg'))
+                    <p class="msg" style="background-color: gold; border-color:black;">{{session('msg')}}</p>
+                    @endif
+                    @yield('content')
+                    
+                </div>
+            </div>
+        </main>
     </header>
     <footer class="footer mt-5 bg-dark fixed-bottom">
         <div class="container text-center mt-5">
