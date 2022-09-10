@@ -23,6 +23,9 @@
                 </div>
             
         @endforeach
+        <a href="/cadastroProdutos">
+            <button type="button" class="btn btn-warning">Cadastrar mais Produtos</button>
+            </a>
     </div>
 
 
