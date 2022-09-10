@@ -10,8 +10,8 @@
             
                 <div class="card col-sm-12 mb-3" style="width: 20rem;">
 
-                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($produto->fotoproduto)) }}"
-                        class="card-img-top mt-2" alt="imagem do produto">
+                    <img src="/img/fotoproduto/{{$produto->fotoproduto}}"
+                        class="card-img-top mt-2" alt="{{$produto->fotoproduto}}">
 
 
                     <div class="card-body text-center">

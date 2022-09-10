@@ -51,9 +51,30 @@ class CadastroController extends Controller
         $produto = new Product;
 
         $produto->nomeproduto = $request->nomeproduto;
-        $produto->fotoproduto = $request->fotoproduto;
         $produto->precoProduto = $request->precoProduto;
         $produto->descProduto = $request->descProduto;
+
+        // Image Upload
+
+        // Primeiro cria-se uma condicional para caso o arquivo exista
+        if($request->hasfile('fotoproduto') && $request->file('fotoproduto')->isValid()){
+
+            // pega a extensão da imagem
+            $requestImage = $request->fotoproduto;
+
+            $extension = $requestImage->extension();
+
+            // gera uma string única baseada no tempo de upload através da hash conctenada com extensão do arquivo
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now") . $extension);
+
+
+            // salvando imagem no servidor
+            $requestImage->move(public_path('img/fotoproduto'), $imageName);
+
+            $produto->fotoproduto = $imageName;
+        
+
+        }
 
 
         // por final os dados do objeto intanciado é salvo

@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nomeproduto');
-            $table->binary('fotoproduto');
+            $table->string('fotoproduto');
             $table->decimal('precoProduto');
             $table->text('descProduto');
         });

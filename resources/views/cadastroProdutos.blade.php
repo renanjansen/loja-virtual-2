@@ -7,7 +7,7 @@
 
 
     <h1 class="text-center">Cadastre seus Produtos</h1>
-    <form class="mb-5" action="/cadastroProdutos" method="POST">
+    <form class="mb-5" action="/cadastroProdutos" method="POST" enctype="multipart/form-data">
 
         {{-- MUITO IMPORTANTE!! A diretiva csrf avisa o blade do salvamento  de dados --}}
         @csrf
@@ -40,8 +40,8 @@
             <li class="list-group-item">
                 <div class="card col-sm-12 mb-5" style="width: auto; height: auto">
 
-                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($produto->fotoproduto)) }}"
-                        class="card-img-top" alt="imagem do produto">
+                    <img src="/img/fotoproduto/{{$produto->fotoproduto}}"
+                        class="card-img-top" alt="{{$produto->fotoproduto}}">
 
 
                     <div class="card-body text-center">
