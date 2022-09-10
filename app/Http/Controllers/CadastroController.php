@@ -10,7 +10,7 @@ use App\Models\Product;
 class CadastroController extends Controller
 {
     //Função que gerará o cadastro
-    public function cadastrar()
+    public function cadastrarProduto()
     {
 
         $empresaNome = "Sistema Favela Vende";
@@ -27,7 +27,7 @@ class CadastroController extends Controller
         );
     }
 
-    public function listar()
+    public function listarProduto()
     {
 
         $empresaNome = "Sistema Favela Vende";

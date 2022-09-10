@@ -38,7 +38,7 @@
     <ul class="list-group">
         @foreach ($produtos as $produto)
             <li class="list-group-item">
-                <div class="card col-sm-12 mb-5" style="width: auto; height: auto">
+                <div class="card col-sm-12 mb-5">
 
                     <img src="/img/fotoproduto/{{$produto->fotoproduto}}"
                         class="card-img-top" alt="{{$produto->fotoproduto}}">

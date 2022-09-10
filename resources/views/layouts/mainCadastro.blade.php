@@ -37,7 +37,7 @@
             
 
             <!-- Aqui vira uma seção lateral com a lista de produtos cadastrados -->
-            <div class="col-sm-4 bg-light mb-5 p-3">
+            <div class="col-sm-4 bg-light mb-5 p-3" style="overflow-y:scroll; height: 800px">
                 @yield('listaProdutos')
 
             </div>
