@@ -32,13 +32,35 @@ class CadastroController extends Controller
 
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
-        $produtos = Product::all();
+        
+
+        //parametrização de busca de produtos 
+
+        // variavel que acessa a propiedade do request
+        $busca = request('buscar');
+        if ($busca) {
+            $produtos = Product::where([
+
+                // busca por palavras
+                ['nomeproduto', 'like', '%' . $busca . '%']
+
+            ]
+                
+            )->get();
+        } else {
+
+            $produtos = Product::all();
+        }
         return view(
             'listaProdutos',
             [
                 'empresaNome' => $empresaNome,
                 'vendedorNome' => $vendedorNome,
-                'produtos' => $produtos
+                'produtos' => $produtos,
+
+                // busca enviada para a view
+                'busca' => $busca
+
             ]
         );
     }

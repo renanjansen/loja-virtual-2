@@ -24,19 +24,21 @@
                         class="d-inline-block align-text-top">
                     {{ $empresaNome }}
                 </a>
+                <!-- Preparando o layout para receber a busca -->
+                @yield('busca')
                 <a href="/">
-                <button type="button" class="btn btn-danger">SAIR</button>
+                    <button type="button" class="btn btn-danger">SAIR</button>
                 </a>
             </div>
         </nav>
         <main>
             <div class="container-fluid">
                 <div class="row text-center">
-                    @if(session('msg'))
-                    <p class="msg" style="background-color: gold; border-color:black;">{{session('msg')}}</p>
+                    @if (session('msg'))
+                        <p class="msg" style="background-color: gold; border-color:black;">{{ session('msg') }}</p>
                     @endif
                     @yield('content')
-                    
+
                 </div>
             </div>
         </main>
