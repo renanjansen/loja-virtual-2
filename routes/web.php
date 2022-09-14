@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CadastroController;
 
-Route::get('/',[LoginController::class, 'index']);
-Route::get('/boasVindas', [LoginController::class,'logar']);
+Route::get('/boasVindas', [LoginController::class,'index']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
 
@@ -26,3 +25,13 @@ Route::get('/listaProdutos',[CadastroController::class, 'listarProduto']);
 // define a rota que recebe dados via post da view de cadastro
 Route::post('/cadastroProdutos',[CadastroController::class, 'store']);
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
