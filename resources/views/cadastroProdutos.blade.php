@@ -14,20 +14,20 @@
         <div class="form-group">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome do Produro</label>
-                <input type="text" class="form-control" id="nomeproduto" name="nomeproduto" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="nomeproduto" name="nomeproduto" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Fotos do Produto</label>
-                <input class="form-control" type="file" id="fotoproduto" name="fotoproduto">
+                <input class="form-control" type="file" id="fotoproduto" name="fotoproduto" required>
             </div>
             <div class="mb-3">
                 <label for="precoProduto">Preço do Produto R$</label>
                 <input type="number" min="0.00" max="10000.00" step="0.01" id="precoProduto" name="precoProduto"
-                    class="form-control" style="display:inline-block" />
+                    class="form-control" style="display:inline-block" required/>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descrição do produto</label>
-                <textarea class="form-control" id="descProduto"name="descProduto" rows="3"></textarea>
+                <textarea class="form-control" id="descProduto"name="descProduto" rows="3" required></textarea>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-warning">Cadastrar Produto</button>
