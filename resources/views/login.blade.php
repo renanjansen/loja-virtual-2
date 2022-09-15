@@ -17,18 +17,19 @@
 <body class="text-center" style="background-color: #9c44dc">
 
     <main class="form-signin">
-        <form>
+        <form action="{{route('login')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <img class="mb-4 img-thumbnail" src="/img/logo.jpg" alt="" width="100" height="90">
             <h1 class="h3 mb-3 fw-normal" style="color: gold"> Seja bem-vindo ao {{$empresaNome}}</h1>
             <h1 class="h3 mb-3 fw-normal"  style="color: gold">Por favor faça seu login</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email</label>
-            </div>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+                <label for="email">Email</label>
+            </div> 
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                <label for="password">Senha</label>
             </div>
 
             <div class="checkbox mb-3">
@@ -36,9 +37,9 @@
                     <input type="checkbox" value="remember-me"> Lembrar de mim
                 </label>
             </div>
-            <a href="/boasVindas">
-            <button class="w-100 btn btn-lg btn-primary" type="button">Entrar</button>
-            </a>
+           
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+            
             <p class="mt-5 mb-3 text">&copy; Renan Jansen</p>
         </form>
 
