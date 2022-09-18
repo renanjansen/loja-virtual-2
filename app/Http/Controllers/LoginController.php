@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
 
         // compara os dadosdo furmulário com o criado no banco
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password],true)) {
 
             return redirect('/boasVindas');
         } else {

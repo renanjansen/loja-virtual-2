@@ -15,7 +15,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="d-flex flex-column h-100"style="background-color: #9c44dc">
+<body class="d-flex flex-column h-100"style="background-color: #9c44dc;background-image: linear-gradient(to bottom,  #9c44dc, rgb(224, 159, 240));">
     <header>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">

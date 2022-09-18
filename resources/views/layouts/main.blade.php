@@ -15,7 +15,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="d-flex flex-column h-100"style="background-color: #9c44dc">
+<body class="d-flex flex-column" style="background-color: #9c44dc;">
     <header>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
@@ -31,18 +31,19 @@
                 </a>
             </div>
         </nav>
-        <main>
-            <div class="container-fluid">
-                <div class="row text-center">
-                    @if (session('msg'))
-                        <p class="msg" style="background-color: gold; border-color:black;">{{ session('msg') }}</p>
-                    @endif
-                    @yield('content')
-
-                </div>
-            </div>
-        </main>
     </header>
+    <main class="container-fluid"> 
+        <div class="container-fluid">
+            <div class="row text-center">
+                @if (session('msg'))
+                    <p class="msg" style="background-color: gold; border-color:black;">{{ session('msg') }}</p>
+                @endif
+                
+                @yield('content')
+            </div>
+        </div>
+    </main>
+        
     <footer class="footer mt-5 bg-dark fixed-bottom">
         <div class="container text-center mt-5">
             <p class="mt-5 mb-3 text-light">&copy; Renan Jansen</p>
