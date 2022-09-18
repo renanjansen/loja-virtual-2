@@ -36,12 +36,14 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
+        
+
         // compara os dadosdo furmulário com o criado no banco
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password],true)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
 
             return redirect('/boasVindas');
         } else {
-            dd('Você não está logado ');
+            return redirect('/register');
         }
     }
 
@@ -58,9 +60,9 @@ class LoginController extends Controller
             $user->password = bcrypt($request->password);
 
             $user->save();
-            
-            return redirect('/')->with('msg', 'Vendedor '. $request->name. ' cadastrado com sucesso!');
-        } 
+
+            return redirect('/')->with('msg', 'Vendedor ' . $request->name . ' cadastrado com sucesso!');
+        }
 
 
         return view(
@@ -76,6 +78,11 @@ class LoginController extends Controller
     {
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
+        // determina um valor padarão para user_id na tabela de produtos
+        $user = auth()->user();
+
+
+        $nomeCliente = $user->name;
 
         $email = '';
         $senha = '';
@@ -84,7 +91,8 @@ class LoginController extends Controller
             'boasVindas',
             [
                 'empresaNome' => $empresaNome,
-                'vendedorNome' => $vendedorNome
+                'vendedorNome' => $vendedorNome,
+                'nomeCliente' => $nomeCliente
             ]
         );
     }

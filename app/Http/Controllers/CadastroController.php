@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 // chama o model de produtos criado paratrabalhar com a base de dados
 use App\Models\Product;
+use App\Models\User;
 
 class CadastroController extends Controller
 {
@@ -15,14 +18,19 @@ class CadastroController extends Controller
 
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
+        $user = auth()->user();
+        
+           
+        $nomeCliente = $user->name;
         // chama todos os produtos da base de dados product
-        $produtos = Product::all();
+        $produtos = Product::all()->where('user_id', $user->id);
         return view(
             'cadastroProdutos',
             [
                 'empresaNome' => $empresaNome,
                 'vendedorNome' => $vendedorNome,
-                'produtos' => $produtos
+                'produtos' => $produtos,
+                'nomeCliente' => $nomeCliente
             ]
         );
     }
@@ -32,6 +40,11 @@ class CadastroController extends Controller
 
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
+        // determina um valor padarão para user_id na tabela de produtos
+        $user = auth()->user();
+        
+           
+            $nomeCliente = $user->name;
         
 
         //parametrização de busca de produtos 
@@ -42,15 +55,18 @@ class CadastroController extends Controller
             $produtos = Product::where([
 
                 // busca por palavras
-                ['nomeproduto', 'like', '%' . $busca . '%']
+                ['nomeproduto', 'like', '%' . $busca . '%'],
+                ['user_id', $user->id]
 
             ]
                 
             )->get();
         } else {
 
-            $produtos = Product::all();
+            $produtos = Product::all()->where('user_id', $user->id);
         }
+
+        
         return view(
             'listaProdutos',
             [
@@ -59,7 +75,8 @@ class CadastroController extends Controller
                 'produtos' => $produtos,
 
                 // busca enviada para a view
-                'busca' => $busca
+                'busca' => $busca,
+                'nomeCliente' => $nomeCliente
 
             ]
         );
@@ -97,6 +114,10 @@ class CadastroController extends Controller
         
 
         }
+
+        // determina um valor padarão para user_id na tabela de produtos
+        $user = auth()->user();
+        $produto->user_id = $user->id;
 
 
         // por final os dados do objeto intanciado é salvo

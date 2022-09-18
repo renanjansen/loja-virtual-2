@@ -21,7 +21,7 @@
             @csrf
             <img class="mb-4 img-thumbnail" src="/img/logo.jpg" alt="" width="100" height="90">
             <h1 class="h3 mb-3 fw-normal" style="color: gold"> Seja bem-vindo ao {{$empresaNome}}</h1>
-            <h1 class="h3 mb-3 fw-normal"  style="color: gold">Por favor informe saus dados pra registro</h1>
+            <h1 class="h3 mb-3 fw-normal"  style="color: gold">Por favor informe seus dados pra registro</h1>
 
             <div class="form-floating">
                 <input type="name" class="form-control" id="name" placeholder="name@example.com" name="name">

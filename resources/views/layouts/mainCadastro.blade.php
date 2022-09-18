@@ -24,6 +24,7 @@
                         class="d-inline-block align-text-top">
                     {{ $empresaNome }}
                 </a>
+                @yield('clienteLogado')
                 <a href="/">
                 <button type="button" class="btn btn-danger">SAIR</button>
                 </a>

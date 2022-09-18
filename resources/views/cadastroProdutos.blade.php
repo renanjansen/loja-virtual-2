@@ -1,5 +1,11 @@
 @extends('layouts.mainCadastro')
 @section('title', 'Cadastro de Produtos')
+@section('clienteLogado')
+<p class="text-white">
+    {{$nomeCliente}}
+</p>
+    
+@endsection
 @section('cadastroProdutos')
 
 
