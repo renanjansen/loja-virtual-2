@@ -14,7 +14,7 @@
     <title>Favela Vende</title>
 </head>
 
-<body class="text-center" style="background-color: #9c44dc">
+<body class="text-center" style="background-color: #9c44dc;background-image: linear-gradient(to bottom,  #9c44dc, rgb(224, 159, 240));">
 
     <main class="form-signin">
         <form action="{{route('register')}}" method="POST" enctype="multipart/form-data">

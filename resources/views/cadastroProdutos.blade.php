@@ -37,8 +37,8 @@
 @section('listaProdutos')
     <ul class="list-group">
         @foreach ($produtos as $produto)
-            <li class="list-group-item">
-                <div class="card col-sm-12 mb-5">
+            <li class="list-group-item bg-light pt-3">
+                <div class="card col-sm-12 mb-5 shadow">
 
                     <img src="/img/fotoproduto/{{$produto->fotoproduto}}"
                         class="card-img-top" alt="{{$produto->fotoproduto}}">
