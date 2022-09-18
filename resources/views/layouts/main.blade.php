@@ -26,6 +26,7 @@
                 </a>
                 <!-- Preparando o layout para receber a busca -->
                 @yield('busca')
+                @yield('clienteLogado')
                 <a href="/">
                     <button type="button" class="btn btn-danger">SAIR</button>
                 </a>

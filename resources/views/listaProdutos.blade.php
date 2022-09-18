@@ -8,6 +8,12 @@
     </form>
 
 @endsection
+@section('clienteLogado')
+<p class="text-white">
+    {{$nomeCliente}}
+</p>
+    
+@endsection
 @section('content')
 
 
@@ -30,7 +36,7 @@
 
             </div>
     @endforeach
-<!-- codicional para exibição de busca por produtos e direcionamento de rotas caso não existam produtos ou não existam produtos na busca -->
+    <!-- codicional para exibição de busca por produtos e direcionamento de rotas caso não existam produtos ou não existam produtos na busca -->
     @if (count($produtos) == 0 && $busca)
         <h4>Não foi possivel encontrar Produtos com a busca por: {{ $busca }}</h4>
         <a href="/listaProdutos">
