@@ -81,6 +81,33 @@ class CadastroController extends Controller
             ]
         );
     }
+
+    //Função que deleta produto
+    public function destroy($id)
+    {
+        
+
+        $user = auth()->user();
+
+        // busca por produto vinculado ao vendedor e o pelo id de parmetro na view   
+        $produto = Product::findOrFail($id)->where([
+
+            ['id', $id],
+            ['user_id', $user->id]
+
+        ]
+            
+        );
+
+        $produto->delete();
+       
+
+         // redireciona após o cadastro do produto
+         return redirect('/listaProdutos')->with('msg', 'Produto deletado com sucesso!');
+
+           
+        
+    }
     
     // traz os dados do formulário
     public function store(Request $request){
