@@ -21,6 +21,8 @@ Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::get('/boasVindas', [LoginController::class,'logar']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
+// Rota para deletar produto
+Route::delete('/listaProdutos/{id}', [CadastroController::class, 'destroy'])->name('destroy');
 
 Route::get('/listaProdutos',[CadastroController::class, 'listarProduto']);
 
@@ -28,3 +30,4 @@ Route::get('/listaProdutos',[CadastroController::class, 'listarProduto']);
 Route::post('/cadastroProdutos',[CadastroController::class, 'store']);
 Route::post('/',[LoginController::class, 'login'])->name('login');
 Route::post('/register',[LoginController::class, 'register'])->name('register');
+
