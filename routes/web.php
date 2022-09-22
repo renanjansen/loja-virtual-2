@@ -24,6 +24,9 @@ Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto'])
 // Rota para deletar produto
 Route::delete('/listaProdutos/{id}', [CadastroController::class, 'destroy'])->name('destroy');
 
+// Rota para editar produto
+Route::patch('/listaProdutos/{id}', [CadastroController::class, 'update'])->name('update');
+
 Route::get('/listaProdutos',[CadastroController::class, 'listarProduto']);
 
 // define a rota que recebe dados via post da view de cadastro

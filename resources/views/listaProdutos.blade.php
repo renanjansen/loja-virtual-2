@@ -42,26 +42,27 @@
 
 
                 <button class="btn btn-danger mt-3" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Editar produto</button>
+                    data-bs-target="#offcanvasScrolling{{$produto->id}}" aria-controls="offcanvasScrolling">Editar produto</button>
 
                 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                    id="offcanvasScrolling{{$produto->id}}" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header bg-dark text-white">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Edição de produto</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body"
                         style="background-color: #9c44dc;background-image: linear-gradient(to bottom,  #9c44dc, rgb(224, 159, 240));">
 
-                        <form class="mb-5" action="/cadastroProdutos" method="POST" enctype="multipart/form-data">
+                        <form class="mb-5" action="{{ route('update', $produto->id)}}" method="POST" enctype="multipart/form-data">
 
                             {{-- MUITO IMPORTANTE!! A diretiva csrf avisa o blade do salvamento  de dados --}}
                             @csrf
+                            @method('PATCH')
                             <div class="form-group">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Nome do Produro</label>
                                     <input type="text" class="form-control" id="nomeproduto" name="nomeproduto"
-                                        aria-describedby="emailHelp" required>
+                                        aria-describedby="emailHelp" placeholder="{{$produto->nomeproduto}}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Fotos do Produto</label>
@@ -70,11 +71,11 @@
                                 <div class="mb-3">
                                     <label for="precoProduto">Preço do Produto R$</label>
                                     <input type="number" min="0.00" max="10000.00" step="0.01" id="precoProduto"
-                                        name="precoProduto" class="form-control" style="display:inline-block" required />
+                                        name="precoProduto" class="form-control" style="display:inline-block" placeholder="{{$produto->precoProduto}}"  required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descrição do produto</label>
-                                    <textarea class="form-control" id="descProduto"name="descProduto" rows="3" required></textarea>
+                                    <textarea class="form-control" id="descProduto"name="descProduto" rows="3" placeholder="{{$produto->descProduto}}" required></textarea>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-warning">Editar Produto</button>
