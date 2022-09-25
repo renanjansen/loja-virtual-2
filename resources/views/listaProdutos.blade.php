@@ -29,7 +29,7 @@
                         @method('DELETE')
                           
                         <button type="submit" class="btn btn-outline-danger" data-bs-toggle="tooltip"
-                            data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Excluir Produto da lista.">
+                            data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Excluir Produto da lista." onclick="return confirm('Tem certeza que deseja deletar este registro?')">
                             X
                         </button>
 
