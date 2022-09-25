@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\VitrineController;
 
 Route::get('/',[LoginController::class, 'index'])->name('login');
 Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::get('/boasVindas', [LoginController::class,'logar']);
+Route::get('/vitrine', [VitrineController::class,'exibirProduto']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
 // Rota para deletar produto
