@@ -19,15 +19,19 @@ class VitrineController extends Controller
         $vendedorNome = "Renan Jansen";
 
         $user = new User;
+                
+        $produtoAdd = Carrinho::all();
         
         $produtos = Product::all()->where('user_id', 2);
+        
 
         return view(
             'vitrine',
             [
                 'empresaNome' => $empresaNome,
                 'vendedorNome' => $vendedorNome,
-                'produtos' => $produtos
+                'produtos' => $produtos,
+                'produtoAdd' => $produtoAdd 
 
                 
             ]
@@ -57,7 +61,7 @@ class VitrineController extends Controller
         $produtoAdd->save();
 
         // redireciona após o cadastro do produto
-        return redirect('/vitrine')->with('msg', 'Produto adicionado com sucesso!');
+        return redirect('/vitrine')->with('msg', 'Produto adicionado ao carrinho de compras '.$produtoAdd->nomeproduto.' com sucesso!');
 
     }
 
