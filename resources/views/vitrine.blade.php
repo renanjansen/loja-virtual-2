@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +13,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body  style="background-color: #9c44dc;">
+<body style="background-color: #9c44dc;">
     <header>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
@@ -40,34 +39,44 @@
                             <div class="container-fluid">
                                 <p class="card-text">
 
-                                @if (strlen( $produto->descProduto) > 100)
-                                    {{substr($produto->descProduto, 0, 40). "..."}}
-                                @else
-                                    {{$produto->descProduto}}
-                                @endif
-                                
+                                    @if (strlen($produto->descProduto) > 100)
+                                        {{ substr($produto->descProduto, 0, 40) . '...' }}
+                                    @else
+                                        {{ $produto->descProduto }}
+                                    @endif
+
                                 </p>
                             </div>
 
-                            <a  class="btn bg-danger mt-2">R$ {{ $produto->precoProduto }}</a>
+                            <a class="btn bg-danger mt-2">R$ {{ $produto->precoProduto }}</a>
                         </div>
                         <div class="input-group justify-content-center mb-3 container-fluid">
 
                             <div class="row justify-content-center mb-1">
-                                <label for="exampleInputEmail1" class="form-label">Quantidade: </label>
-                               
-                                <input type="number" min="1" max="20" class="col-6"
-                                    placeholder=""aria-label="Example text with two button addons" />
+                                <form class="mb-5" action="/vitrine" method="POST"
+                                    enctype="multipart/form-data">
+                                    {{-- MUITO IMPORTANTE!! A diretiva csrf avisa o blade do salvamento  de dados --}}
+                                    @csrf
+                                    <label for="exampleInputEmail1" class="form-label">Quantidade: </label>
 
-                                
+                                    <input type="number" min="1" max="20" class="col-6" name="qntProduto"
+                                        placeholder=""aria-label="Example text with two button addons" />
+
+
+
+
                             </div>
+                            <input type="hidden" name="nomeproduto" value="{{$produto->nomeproduto}}">
+                            <input type="hidden" name="fotoproduto" value="{{$produto->fotoproduto}}">
+                            <input type="hidden" name="precoProduto" value="{{$produto->precoProduto}}">
+                            <input type="hidden" name="descProduto" value="{{$produto->descProduto}}">
+                            <input type="hidden" name="id" value="{{$produto->id}}">
 
-
-
-
-                            <button type="button" class="btn btn-warning">
+                            <button type="submit" class="btn btn-warning">
                                 Adicionar ao carrinho
                             </button>
+                            </form>
+
                             <button type="button" class="btn btn-danger mt-5 mb-2" onClick={exibeCarrinho}>
                                 Exibir carrinho
                             </button>

@@ -15,4 +15,11 @@ class Product extends Model
         //informa que o produto sempre pertenserá a um usuário
         return $this->belongsTo('App\Models\User');
     }
+
+    public function carrinhos(){
+
+        //informa que o carrinhos poderá ter sempre muitos produtos
+        return $this->hasMany('App\Models\Carrinho');
+
+    }
 }
