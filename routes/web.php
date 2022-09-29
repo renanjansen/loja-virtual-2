@@ -20,7 +20,7 @@ use App\Http\Controllers\VitrineController;
 Route::get('/',[LoginController::class, 'index'])->name('login');
 Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::get('/boasVindas', [LoginController::class,'logar']);
-Route::get('/vitrine', [VitrineController::class,'exibirProduto']);
+Route::get('/vitrine', [VitrineController::class,'exibirProduto', 'addCarrinho']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
 // Rota para deletar produto
