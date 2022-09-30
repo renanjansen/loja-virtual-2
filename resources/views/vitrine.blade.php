@@ -24,8 +24,10 @@
                         class="d-inline-block align-text-top">
                     {{ $empresaNome }}
                 </a>
-                <a href="/carrinho">
-                    <button type="button" class="btn btn-outline-danger position-relative">
+                <a href="/sacola">
+                    <button type="button" class="btn btn-outline-danger position-relative"data-bs-toggle="tooltip"
+                    data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    title="Ir para carrinho de compras">
                         <i class="bi bi-cart4 position-relative" style="font-size: 2rem; color: gold;"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
