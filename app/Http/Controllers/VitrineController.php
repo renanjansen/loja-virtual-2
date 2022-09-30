@@ -50,6 +50,7 @@ class VitrineController extends Controller
         $produtoAdd->descProduto = $request->descProduto;
         $produtoAdd->fotoproduto = $request->fotoproduto;
         $produtoAdd->qntProduto = $request->qntProduto;
+        $produtoAdd->subTotalProduto = $request->qntProduto * $request->precoProduto;
         $produtoAdd->product_id = $request->id;
 
         

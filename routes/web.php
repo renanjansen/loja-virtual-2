@@ -16,15 +16,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\VitrineController;
+use App\Http\Controllers\CarrinhoController;
+
 
 Route::get('/',[LoginController::class, 'index'])->name('login');
 Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::get('/boasVindas', [LoginController::class,'logar']);
 Route::get('/vitrine', [VitrineController::class,'exibirProduto', 'addCarrinho']);
+Route::get('/sacola', [CarrinhoController::class,'exibirSacola']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
 // Rota para deletar produto
 Route::delete('/listaProdutos/{id}', [CadastroController::class, 'destroy'])->name('destroy');
+Route::delete('/sacola/{id}', [CarrinhoController::class, 'destroy'])->name('destroy');
 
 // Rota para editar produto
 Route::patch('/listaProdutos/{id}', [CadastroController::class, 'update'])->name('update');
