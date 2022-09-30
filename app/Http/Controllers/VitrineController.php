@@ -22,7 +22,7 @@ class VitrineController extends Controller
                 
         $produtoAdd = Carrinho::all();
         
-        $produtos = Product::all()->where('user_id', 2);
+        $produtos = Product::all()->where('user_id', 1);
         
 
         return view(
