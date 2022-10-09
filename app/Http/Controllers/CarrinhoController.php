@@ -17,7 +17,7 @@ class CarrinhoController extends Controller
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
 
-        $produtosAdd = Carrinho::all();
+        $produtosAdd = Carrinho::all()->where('user_id', 1);
         $total = DB::table('carrinhos')->sum('subTotalProduto');
 
         return view(

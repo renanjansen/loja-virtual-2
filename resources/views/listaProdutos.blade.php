@@ -114,6 +114,9 @@
             <button type="button" class="btn btn-warning mb-5">Cadastrar mais Produtos</button>
         </a>
     @endif
+    <a href="" id="whatsapp-share-btt" rel="nofollow" target="_blank"> 
+    <button type="button" class="btn btn-danger mb-5">Compartilhar Loja</button>
+    </a>
 
     </div>
 

@@ -33,18 +33,18 @@
             </div>
         </nav>
     </header>
-    <main class="container-fluid"> 
+    <main class="container-fluid">
         <div class="container-fluid">
             <div class="row text-center">
                 @if (session('msg'))
                     <p class="msg" style="background-color: gold; border-color:black;">{{ session('msg') }}</p>
                 @endif
-                
+
                 @yield('content')
             </div>
         </div>
     </main>
-        
+
     <footer class="footer mt-5 bg-dark fixed-bottom">
         <div class="container text-center mt-5">
             <p class="mt-5 mb-3 text-light">&copy; Renan Jansen</p>
@@ -54,6 +54,15 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        //Constrói a URL depois que o DOM estiver pronto
+        document.addEventListener("DOMContentLoaded", function() {
+            //conteúdo que será compartilhado: Título da página + URL
+            var conteudo = encodeURIComponent(document.title + " " + "http://127.0.0.1:8000/vitrine/1");
+            //altera a URL do botão
+            document.getElementById("whatsapp-share-btt").href = "https://api.whatsapp.com/send?text=" + conteudo;
+        }, false);
     </script>
 
 
