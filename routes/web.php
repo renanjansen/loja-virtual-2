@@ -22,7 +22,7 @@ use App\Http\Controllers\CarrinhoController;
 Route::get('/',[LoginController::class, 'index'])->name('login');
 Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::get('/boasVindas', [LoginController::class,'logar']);
-Route::get('/vitrine', [VitrineController::class,'exibirProduto', 'addCarrinho']);
+Route::get('/vitrine/{id}', [VitrineController::class,'exibirProduto', 'addCarrinho']);
 Route::get('/sacola', [CarrinhoController::class,'exibirSacola']);
 
 Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);

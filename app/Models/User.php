@@ -48,4 +48,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Product');
 
     }
+
+    public function carrinhos(){
+
+        //informa que o usuário poderá ter sempre muitos produtos
+        return $this->hasMany('App\Models\Carrinho');
+
+    }
 }

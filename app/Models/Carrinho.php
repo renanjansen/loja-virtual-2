@@ -14,4 +14,10 @@ class Carrinho extends Model
         //informa que o produto sempre pertenserá a um usuário
         return $this->belongsTo('App\Models\Product');
     }
+
+    public function user(){
+
+        //informa que o produto sempre pertenserá a um usuário
+        return $this->belongsTo('App\Models\User');
+    }
 }

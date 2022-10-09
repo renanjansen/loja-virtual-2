@@ -12,18 +12,18 @@ use App\Models\Carrinho;
 
 class VitrineController extends Controller
 {
-    public function exibirProduto()
+    public function exibirProduto($id)
     {
 
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
 
-        $user = new User;
-                
-        $produtoAdd = Carrinho::all();
         
-        $produtos = Product::all()->where('user_id', 1);
-        
+
+        $produtoAdd = Carrinho::all()->where('user_id', 3);
+
+        $produtos = Product::all()->where('user_id', 3);
+
 
         return view(
             'vitrine',
@@ -31,16 +31,18 @@ class VitrineController extends Controller
                 'empresaNome' => $empresaNome,
                 'vendedorNome' => $vendedorNome,
                 'produtos' => $produtos,
-                'produtoAdd' => $produtoAdd 
+                'produtoAdd' => $produtoAdd
 
-                
+
             ]
         );
     }
 
-     // traz os dados do formulário
-     public function addCarrinho(Request $request){
+    // traz os dados do formulário
+    public function addCarrinho(Request $request)
+    {
 
+        $user = auth()->user();
 
         // instância do objeto Product da base de dados
         $produtoAdd = new Carrinho;
@@ -52,19 +54,17 @@ class VitrineController extends Controller
         $produtoAdd->qntProduto = $request->qntProduto;
         $produtoAdd->subTotalProduto = $request->qntProduto * $request->precoProduto;
         $produtoAdd->product_id = $request->id;
+        $produtoAdd->user_id = $user->id;
 
-        
 
-        
+
+
 
 
         // por final os dados do objeto intanciado é salvo
         $produtoAdd->save();
 
         // redireciona após o cadastro do produto
-        return redirect('/vitrine')->with('msg', 'Produto adicionado ao carrinho de compras '.$produtoAdd->nomeproduto.' com sucesso!');
-
+        return redirect('/vitrine')->with('msg', 'Produto adicionado ao carrinho de compras ' . $produtoAdd->nomeproduto . ' com sucesso!');
     }
-
-    
 }
