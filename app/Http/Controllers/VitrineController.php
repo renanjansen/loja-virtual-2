@@ -18,11 +18,13 @@ class VitrineController extends Controller
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
 
+        $user = auth()->user();
+
         
 
-        $produtoAdd = Carrinho::all()->where('user_id', 3);
+        $produtoAdd = Carrinho::all()->where('user_id', $id);
 
-        $produtos = Product::all()->where('user_id', 3);
+        $produtos = Product::all()->where('user_id', $id);
 
 
         return view(
@@ -32,6 +34,7 @@ class VitrineController extends Controller
                 'vendedorNome' => $vendedorNome,
                 'produtos' => $produtos,
                 'produtoAdd' => $produtoAdd
+               
 
 
             ]
