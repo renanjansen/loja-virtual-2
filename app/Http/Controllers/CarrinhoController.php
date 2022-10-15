@@ -19,7 +19,7 @@ class CarrinhoController extends Controller
 
         $user = auth()->user();
 
-        $produtosAdd = Carrinho::all()->where('user_id', 1);
+        $produtosAdd = Carrinho::all()->where('user_id', $user->id);
         $total = DB::table('carrinhos')->sum('subTotalProduto');
 
         return view(
