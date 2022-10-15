@@ -107,7 +107,7 @@
 
         </ul>
         <div class="text-center mt-3 mb-1">
-        <a href="/vitrine">
+        <a href="/vitrine/{{$usuarioId}}">
         <button type="button" class="btn btn-warning">Continuar comprando</button>
         </a>
         </div>

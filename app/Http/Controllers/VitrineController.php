@@ -33,6 +33,7 @@ class VitrineController extends Controller
                 'empresaNome' => $empresaNome,
                 'vendedorNome' => $vendedorNome,
                 'produtos' => $produtos,
+                'usuarioId' => $user->id,
                 'produtoAdd' => $produtoAdd
                
 
@@ -42,10 +43,11 @@ class VitrineController extends Controller
     }
 
     // traz os dados do formulário
-    public function addCarrinho(Request $request)
+    public function addCarrinho(Request $request, $id)
     {
 
         $user = auth()->user();
+        $id = $user->id;
 
         // instância do objeto Product da base de dados
         $produtoAdd = new Carrinho;
@@ -68,6 +70,6 @@ class VitrineController extends Controller
         $produtoAdd->save();
 
         // redireciona após o cadastro do produto
-        return redirect('/vitrine')->with('msg', 'Produto adicionado ao carrinho de compras ' . $produtoAdd->nomeproduto . ' com sucesso!');
+        return redirect('/vitrine/'. $id)->with('msg', 'Produto adicionado ao carrinho de compras ' . $produtoAdd->nomeproduto . ' com sucesso!');
     }
 }
