@@ -94,12 +94,19 @@
         <ul class="list-group">
 
             <li class="list-group-item">Total:
+                @php
+                    $total = 0;
+                @endphp
 
+                @foreach ($produtosAdd as $produtoAdd)
+                @php
+                    $total+=$produtoAdd->subTotalProduto
+                @endphp
+                
+                @endforeach
+                {{$total}}
 
-
-
-
-                {{ $total }}
+                
 
 
 
