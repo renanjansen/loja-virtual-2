@@ -39,6 +39,6 @@ Route::get('/listaProdutos',[CadastroController::class, 'listarProduto']);
 Route::post('/cadastroProdutos',[CadastroController::class, 'store']);
 Route::post('/',[LoginController::class, 'login'])->name('login');
 Route::post('/register',[LoginController::class, 'register'])->name('register');
-Route::post('/vitrine', [VitrineController::class,'addCarrinho']);
+Route::post('/vitrine/{id}', [VitrineController::class,'addCarrinho']);
 
 

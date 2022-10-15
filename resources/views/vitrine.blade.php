@@ -77,7 +77,7 @@
                         <div class="input-group justify-content-center mb-2 container-fluid">
 
                             <div class="row justify-content-center mb-5">
-                                <form class="mb-5" action="/vitrine" method="POST" enctype="multipart/form-data">
+                                <form class="mb-5" action="/vitrine/{{$usuarioId}}" method="POST" enctype="multipart/form-data">
                                     {{-- MUITO IMPORTANTE!! A diretiva csrf avisa o blade do salvamento  de dados --}}
                                     @csrf
                                     <label for="exampleInputEmail1" class="form-label">Quantidade: </label>
@@ -97,7 +97,7 @@
                                     </button>
                                 </form>
 
-                                <button type="button" class="btn btn-danger" onClick={exibeCarrinho}>
+                                <button type="button" class="btn btn-danger">
                                     Exibir carrinho
                                 </button>
 
