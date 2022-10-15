@@ -76,7 +76,8 @@ class CadastroController extends Controller
 
                 // busca enviada para a view
                 'busca' => $busca,
-                'nomeCliente' => $nomeCliente
+                'nomeCliente' => $nomeCliente,
+                'usuarioId' => $user->id
 
             ]
         );
