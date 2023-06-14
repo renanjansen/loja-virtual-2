@@ -35,6 +35,9 @@
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                 <label for="password">Senha</label>
             </div>
+            <div>
+                <a href="{{ route('register') }}" class="link-dark">Ainda não sou cadastrado</a>
+            </div>
             <label>
                 <input type="checkbox" value="remember-me"> Lembrar de mim
             </label>

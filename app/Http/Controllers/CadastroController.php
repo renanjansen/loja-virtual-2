@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use Illuminate\Support\Facades\DB;
 
 // chama o model de produtos criado paratrabalhar com a base de dados
@@ -12,6 +13,11 @@ use App\Models\User;
 
 class CadastroController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('loginAcesso');
+    }
+
     //Função que gerará o cadastro
     public function cadastrarProduto()
     {
@@ -19,8 +25,8 @@ class CadastroController extends Controller
         $empresaNome = "Sistema Favela Vende";
         $vendedorNome = "Renan Jansen";
         $user = auth()->user();
-        
-           
+
+
         $nomeCliente = $user->name;
         // chama todos os produtos da base de dados product
         $produtos = Product::all()->where('user_id', $user->id);
@@ -42,12 +48,12 @@ class CadastroController extends Controller
         $vendedorNome = "Renan Jansen";
         // determina um valor padarão para user_id na tabela de produtos
         $user = auth()->user();
-        
-           
-            $nomeCliente = $user->name;
-        
 
-        //parametrização de busca de produtos 
+
+            $nomeCliente = $user->name;
+
+
+        //parametrização de busca de produtos
 
         // variavel que acessa a propiedade do request
         $busca = request('buscar');
@@ -59,14 +65,14 @@ class CadastroController extends Controller
                 ['user_id', $user->id]
 
             ]
-                
+
             )->get();
         } else {
 
             $produtos = Product::all()->where('user_id', $user->id);
         }
 
-        
+
         return view(
             'listaProdutos',
             [
@@ -86,28 +92,28 @@ class CadastroController extends Controller
     //Função que deleta produto
     public function destroy($id)
     {
-        
+
 
         $user = auth()->user();
 
-        // busca por produto vinculado ao vendedor e o pelo id de parmetro na view   
+        // busca por produto vinculado ao vendedor e o pelo id de parmetro na view
         $produto = Product::findOrFail($id)->where([
 
             ['id', $id],
             ['user_id', $user->id]
 
         ]
-            
+
         );
 
         $produto->delete();
-       
+
 
          // redireciona após o cadastro do produto
          return redirect('/listaProdutos')->with('msg', 'Produto deletado com sucesso!');
 
-           
-        
+
+
     }
 
     //Função que edita o produto
@@ -120,14 +126,14 @@ class CadastroController extends Controller
         // instância do objeto Product da base de dados
         $produto = new Product;
 
-        // busca por produto vinculado ao vendedor e o pelo id de parmetro na view   
+        // busca por produto vinculado ao vendedor e o pelo id de parmetro na view
         $produto = Product::findOrFail($id)->where([
 
             ['id', $id],
             ['user_id', $user->id]
 
         ]
-            
+
         )->first();
 
         $produto->nomeproduto = $request->nomeproduto;
@@ -152,7 +158,7 @@ class CadastroController extends Controller
             $requestImage->move(public_path('img/fotoproduto'), $imageName);
 
             $produto->fotoproduto = $imageName;
-        
+
 
         }
 
@@ -164,7 +170,7 @@ class CadastroController extends Controller
 
     }
 
-    
+
     // traz os dados do formulário
     public function store(Request $request){
 
@@ -194,7 +200,7 @@ class CadastroController extends Controller
             $requestImage->move(public_path('img/fotoproduto'), $imageName);
 
             $produto->fotoproduto = $imageName;
-        
+
 
         }
 

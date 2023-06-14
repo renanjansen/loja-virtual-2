@@ -61,9 +61,9 @@
 
             // pegando o id do usuario para compartilhar a vitrine virtual
             var usuarioId = document.getElementById('usuarioId').innerText;
-            
+
             //conteúdo que será compartilhado: Título da página + URL
-            var conteudo = encodeURIComponent(document.title + " " + "http://127.0.0.1:8000/vitrine/"+usuarioId);
+            var conteudo = encodeURIComponent(document.title + " " + "http://127.0.0.1:8000/vitrine/" + usuarioId);
             //altera a URL do botão
             document.getElementById("whatsapp-share-btt").href = "https://api.whatsapp.com/send?text=" + conteudo;
         }, false);

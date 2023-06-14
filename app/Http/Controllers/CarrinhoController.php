@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 // chama o model de produtos criado paratrabalhar com a base de dados
 use App\Models\Product;
 use App\Models\User;
@@ -12,6 +13,11 @@ use Illuminate\Support\Facades\DB;
 
 class CarrinhoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('loginAcesso');
+    }
+
     public function exibirSacola (){
 
         $empresaNome = "Sistema Favela Vende";
@@ -33,11 +39,11 @@ class CarrinhoController extends Controller
 
 
 
-                
-                
-                
 
-                
+
+
+
+
             ]
         );
     }
@@ -45,20 +51,20 @@ class CarrinhoController extends Controller
     //Função que deleta produto
     public function destroy($id)
     {
-        
+
 
         $user = auth()->user();
 
-        
+
         $produtosAdd = Carrinho::findOrFail($id);
 
         $produtosAdd->delete();
-       
+
 
          // redireciona após o cadastro do produto
          return redirect('/sacola')->with('msg', 'Produto deletado com sucesso!');
 
-           
-        
+
+
     }
 }

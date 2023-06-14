@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 // chama o model de produtos criado paratrabalhar com a base de dados
 use App\Models\Product;
 use App\Models\User;
@@ -12,6 +13,11 @@ use App\Models\Carrinho;
 
 class VitrineController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('loginAcesso');
+    }
+
     public function exibirProduto($id)
     {
 
@@ -20,7 +26,7 @@ class VitrineController extends Controller
 
         $user = auth()->user();
 
-        
+
 
         $produtoAdd = Carrinho::all()->where('user_id', $id);
 
@@ -35,7 +41,7 @@ class VitrineController extends Controller
                 'produtos' => $produtos,
                 'usuarioId' => $user->id,
                 'produtoAdd' => $produtoAdd
-               
+
 
 
             ]
