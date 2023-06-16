@@ -21,7 +21,7 @@ class LoginAcessoMiddleware
         $user = auth()->user();
         $response = $next($request);
         $senha = $request->session()->get('password');
-        if ($user->password == $senha) {
+        if ($user->password == $senha || $user) {
            session_start();
           return $response;
         } else {
