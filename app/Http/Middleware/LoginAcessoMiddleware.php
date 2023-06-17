@@ -18,11 +18,10 @@ class LoginAcessoMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = auth()->user();
+        session_start();
         $response = $next($request);
-        $senha = $request->session()->get('password');
-        if ($user->password == $senha || $user) {
-           session_start();
+
+        if (!empty($_SESSION)) {
           return $response;
         } else {
             return redirect('/')->with('msg', 'Acesso não autorizado!');

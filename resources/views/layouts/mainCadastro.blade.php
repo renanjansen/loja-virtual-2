@@ -25,17 +25,17 @@
                     {{ $empresaNome }}
                 </a>
                 @yield('clienteLogado')
-                <a href="/">
+                <a href="{{ route('logout') }}">
                 <button type="button" class="btn btn-danger">SAIR</button>
                 </a>
             </div>
-            
+
         </nav>
         <div class="row mb-5 p-2">
             <div class="col-sm-8 p-3">
                 @yield('cadastroProdutos')
             </div>
-            
+
 
             <!-- Aqui vira uma seção lateral com a lista de produtos cadastrados -->
             <div class="col-sm-4 bg-light mb-5 p-3" style="overflow-y:scroll; height: 800px">

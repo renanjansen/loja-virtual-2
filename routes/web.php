@@ -20,12 +20,13 @@ use App\Http\Controllers\CarrinhoController;
 
 
 Route::get('/',[LoginController::class, 'index'])->name('login');
+Route::middleware('loginAcesso')->get('/logout',[LoginController::class, 'logout'])->name('logout');
 Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::middleware('loginAcesso')->get('/boasVindas', [LoginController::class,'login']);
 Route::get('/vitrine/{id}', [VitrineController::class,'exibirProduto', 'addCarrinho']);
 Route::get('/sacola', [CarrinhoController::class,'exibirSacola']);
 
-Route::get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
+Route::middleware('loginAcesso')->get('/cadastroProdutos', [CadastroController::class, 'cadastrarProduto']);
 
 
 // Rota para deletar produto

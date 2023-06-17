@@ -50,7 +50,7 @@ class LoginController extends Controller
         // compara os dados do furmulário com o criado no banco
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
             session_start();
-            session(['password' => $request->password]);
+            $_SESSION['password'] = $request->password;
             return view(
                 'boasVindas',
                 [
@@ -92,6 +92,12 @@ class LoginController extends Controller
         );
     }
 
+    public function logout()
+    {
+
+        session_destroy();
+        return redirect('/')->with('msg', 'Usuário deslogado com sucesso!');
+    }
 
 
 }

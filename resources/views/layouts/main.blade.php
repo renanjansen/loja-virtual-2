@@ -27,7 +27,7 @@
                 <!-- Preparando o layout para receber a busca -->
                 @yield('busca')
                 @yield('clienteLogado')
-                <a href="/">
+                <a href="{{ route('logout') }}">
                     <button type="button" class="btn btn-danger">SAIR</button>
                 </a>
             </div>
